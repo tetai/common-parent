@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.wakedata.common.redis.lock.RedisLockAutoConfiguration,\
+  com.wakedata.common.redis.RedisConfig,\
+  com.wakedata.common.redis.util.RedisUtil
