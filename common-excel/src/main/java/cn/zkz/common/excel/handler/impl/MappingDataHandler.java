@@ -1,7 +1,8 @@
 package cn.zkz.common.excel.handler.impl;
 
-import cn.zkz.common.excel.LogInfo;
+
 import cn.zkz.common.excel.handler.AbstractPrepareHandler;
+import cn.zkz.common.excel.model.LogInfo;
 
 import java.util.List;
 import java.util.Map;

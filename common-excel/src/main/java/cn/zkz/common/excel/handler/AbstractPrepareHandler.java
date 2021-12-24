@@ -1,9 +1,14 @@
 package cn.zkz.common.excel.handler;
 
-import cn.zkz.common.excel.LogInfo;
 
+
+import cn.zkz.common.excel.model.LogInfo;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * @Desc
@@ -29,4 +34,14 @@ public abstract class AbstractPrepareHandler {
 
     public abstract void handle(Class clazz, List<Object> dataList, Map<Integer, LogInfo> errorLogs);
 
+    protected List<Field> getFieldsByAnnotation(Class clazz, Class annotation) {
+        Field[] fields = clazz.getDeclaredFields();
+        List<Field> hasAnnotationFields = new ArrayList<>();
+        for (Field f: fields) {
+            if (f.getAnnotation(annotation) != null) {
+                hasAnnotationFields.add(f);
+            }
+        }
+        return hasAnnotationFields;
+    }
 }

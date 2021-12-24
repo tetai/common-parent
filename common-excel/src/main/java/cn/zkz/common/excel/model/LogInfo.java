@@ -1,7 +1,6 @@
-package cn.zkz.common.excel;
+package cn.zkz.common.excel.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
