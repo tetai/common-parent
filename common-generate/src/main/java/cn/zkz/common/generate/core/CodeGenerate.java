@@ -44,7 +44,6 @@ public class CodeGenerate {
      * 4、输出文件
      */
     public static void codeGenerate() throws Exception {
-
         loadProperties();
         GlobalConfig globalConfig = GlobalConfig.newInstance();
         String tables = globalConfig.getTables();

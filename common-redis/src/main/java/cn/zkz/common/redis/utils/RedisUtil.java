@@ -24,12 +24,6 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-/**
- * redis操作
- *
- * @author hhf
- * @date 2021/1/28
- */
 @Slf4j
 @Component
 public class RedisUtil {

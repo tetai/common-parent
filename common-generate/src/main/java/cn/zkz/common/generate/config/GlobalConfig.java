@@ -16,7 +16,6 @@ public class GlobalConfig {
     private final static GlobalConfig globalConfig = new GlobalConfig();
 
     public static GlobalConfig newInstance() {
-
         return globalConfig;
     }
 

@@ -5,7 +5,7 @@ package cn.zkz.common.core.exception;
 /**
  * 业务逻辑异常,全局异常拦截后统一返回ResponseCode.BUSINESS_ERROR
  *
- * @author hhf
+ * @author zkz
  * @date 2021/1/28
  */
 public class BizException extends RuntimeException {
