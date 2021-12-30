@@ -1,6 +1,7 @@
 package cn.zkz.common.excel.handler.impl;
 
 
+import cn.zkz.common.excel.annotation.read.ExcelFieldIsNotDuplicate;
 import cn.zkz.common.excel.handler.AbstractPrepareHandler;
 import cn.zkz.common.excel.model.LogInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +26,7 @@ public class CheckDuplicateHandler extends AbstractPrepareHandler {
         log.info("start CheckDuplicateHandler---------------");
         Long start = System.currentTimeMillis();
         // 根据注解先查出哪些列需要判断不为空
-        List<Field> needCheckFields = getFieldsByAnnotation(clazz, CheckDuplicateHandler.class);
+        List<Field> needCheckFields = getFieldsByAnnotation(clazz, ExcelFieldIsNotDuplicate.class);
         if (needCheckFields.isEmpty()) {
             return;
         }
@@ -59,7 +60,7 @@ public class CheckDuplicateHandler extends AbstractPrepareHandler {
         });
 
         Long time = System.currentTimeMillis() - start;
-        log.info("end CheckDuplicateHandler----------time={}"+time);
+        log.info("end CheckDuplicateHandler----------time={}", time);
     }
 
     private void addDuplicateData(Integer rowNum, String name, Map<Integer, LogInfo> errorLogs) {

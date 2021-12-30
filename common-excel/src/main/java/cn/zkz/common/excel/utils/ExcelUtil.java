@@ -5,6 +5,7 @@ import cn.zkz.common.excel.annotation.HeadRowNumber;
 import cn.zkz.common.excel.handler.AbstractPrepareHandler;
 import cn.zkz.common.excel.handler.impl.CheckDuplicateHandler;
 import cn.zkz.common.excel.handler.impl.CheckEmptyHandler;
+import cn.zkz.common.excel.handler.impl.NameToIdHandler;
 import cn.zkz.common.excel.model.LogInfo;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.read.listener.PageReadListener;
@@ -27,14 +28,15 @@ public class ExcelUtil<T> {
 
 
     public Result<List<T>> read(InputStream inputStream, Class clazz) {
-        log.info("start------------");
         List<T> res = new ArrayList<>();
         EasyExcel.read(inputStream, clazz, new PageReadListener<T>(dataList -> {
             res.addAll(dataList);
 
         })).sheet().headRowNumber(getHeadRowNum(clazz)).doRead();
+        // 4 名称转ID
+        AbstractPrepareHandler name2Id = new NameToIdHandler(null);
         // 3 判断是否重复
-        AbstractPrepareHandler checkDuplicateHandler = new CheckDuplicateHandler(null);
+        AbstractPrepareHandler checkDuplicateHandler = new CheckDuplicateHandler(name2Id);
         // 2 判断是否为空
         AbstractPrepareHandler handler = new CheckEmptyHandler(checkDuplicateHandler);
         Map<Integer, LogInfo> errorLogs = new HashMap<>();

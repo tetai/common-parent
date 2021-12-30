@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    name: test
+    url: jdbc:p6spy:mysql://127.0.0.1:3306/mytest?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    druid:
+      max-active: 140
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 3
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 360000
+      validation-query: select 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      max-pool-prepared-statement-per-connection-size: 50
+      filters: stat

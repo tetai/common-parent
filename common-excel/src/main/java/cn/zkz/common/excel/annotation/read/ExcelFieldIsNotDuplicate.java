@@ -1,15 +1,14 @@
-package cn.zkz.common.excel.annotation;
+package cn.zkz.common.excel.annotation.read;
 
 import java.lang.annotation.*;
 
 /**
- * @Desc
+ * @Desc 该列是否可重复
  * @Author zkz
- * @Date 2021/12/21
+ * @Date 2021/12/24
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.ANNOTATION_TYPE})
-public @interface ExcelFieldIsNotEmpty {
-
+public @interface ExcelFieldIsNotDuplicate {
 }

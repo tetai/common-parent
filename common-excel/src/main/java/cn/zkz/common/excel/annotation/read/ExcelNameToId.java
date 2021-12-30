@@ -1,4 +1,4 @@
-package cn.zkz.common.excel.annotation;
+package cn.zkz.common.excel.annotation.read;
 
 import java.lang.annotation.*;
 
@@ -29,6 +29,13 @@ public @interface ExcelNameToId {
      * @return
      */
     String colId();
+
+    /**
+     * 过滤条件 SQL
+     * TODO 可根据登录信息占位符进行过滤
+     * @return
+     */
+    String filter();
 
 
     /**
